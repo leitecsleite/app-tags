@@ -113,6 +113,8 @@ export default function App(props: Props): App<Manifest, State> {
   // loaders, actions and workflows
   const state = { ...props, api };
 
+  console.log(state, api)
+
   return {
     state,
     manifest,
