@@ -5,18 +5,20 @@
 import * as $$$$$$$$$0 from "./actions/myAction.ts";
 import * as $$$0 from "./loaders/myLoader.ts";
 import * as $$$$$$0 from "./sections/mySection.tsx";
+import * as $$$$$$1 from "./sections/tags.tsx";
 
 const manifest = {
   "loaders": {
-    "app-template/loaders/myLoader.ts": $$$0,
+    "app-tags/loaders/myLoader.ts": $$$0,
   },
   "sections": {
-    "app-template/sections/mySection.tsx": $$$$$$0,
+    "app-tags/sections/mySection.tsx": $$$$$$0,
+    "app-tags/sections/tags.tsx": $$$$$$1,
   },
   "actions": {
-    "app-template/actions/myAction.ts": $$$$$$$$$0,
+    "app-tags/actions/myAction.ts": $$$$$$$$$0,
   },
-  "name": "app-template",
+  "name": "app-tags",
   "baseUrl": import.meta.url,
 };
 
