@@ -124,8 +124,8 @@ export const preview = () => {
   return {
     Component: PreviewContainer,
     props: {
-      name: "App Template",
-      owner: "deco.cx",
+      name: "App Tags",
+      owner: "Lucas Leite",
       description: "This is an template of an app to be used as a reference.",
       logo:
         "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1/0ac02239-61e6-4289-8a36-e78c0975bcc8",
