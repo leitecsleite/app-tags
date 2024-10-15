@@ -98,7 +98,7 @@ export interface State extends Omit<Props, "token"> {
  * @logo https://
  */
 export default function App(props: Props): App<Manifest, State> {
-  const { token, account: _account } = props;
+  const { token, account: _account, flagCustom, flagDiscountThirdFor } = props;
 
   const _stringToken = typeof token === "string" ? token : token?.get?.() ?? "";
 
@@ -111,9 +111,9 @@ export default function App(props: Props): App<Manifest, State> {
   // it is the state of the app, all data
   // here will be available in the context of
   // loaders, actions and workflows
-  const state = { ...props, api };
+  const tags = { flagCustom, flagDiscountThirdFor }
 
-  console.log(state, api)
+  const state = { ...props, api, tags };
 
   return {
     state,

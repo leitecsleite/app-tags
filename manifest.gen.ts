@@ -4,12 +4,14 @@
 
 import * as $$$$$$$$$0 from "./actions/myAction.ts";
 import * as $$$0 from "./loaders/myLoader.ts";
+import * as $$$1 from "./loaders/tags.ts";
 import * as $$$$$$0 from "./sections/mySection.tsx";
 import * as $$$$$$1 from "./sections/tags.tsx";
 
 const manifest = {
   "loaders": {
     "app-tags/loaders/myLoader.ts": $$$0,
+    "app-tags/loaders/tags.ts": $$$1,
   },
   "sections": {
     "app-tags/sections/mySection.tsx": $$$$$$0,
