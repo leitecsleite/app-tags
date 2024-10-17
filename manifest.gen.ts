@@ -3,19 +3,19 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $$$$$$$$$0 from "./actions/myAction.ts";
-import * as $$$0 from "./loaders/myLoader.ts";
-import * as $$$1 from "./loaders/tags.ts";
-import * as $$$$$$0 from "./sections/mySection.tsx";
-import * as $$$$$$1 from "./sections/tags.tsx";
+import * as $$$0 from "./loaders/collections/list.ts";
+import * as $$$1 from "./loaders/getCategoryTree.ts";
+import * as $$$2 from "./loaders/tags.ts";
+import * as $$$$$$0 from "./sections/tags.tsx";
 
 const manifest = {
   "loaders": {
-    "app-tags/loaders/myLoader.ts": $$$0,
-    "app-tags/loaders/tags.ts": $$$1,
+    "app-tags/loaders/collections/list.ts": $$$0,
+    "app-tags/loaders/getCategoryTree.ts": $$$1,
+    "app-tags/loaders/tags.ts": $$$2,
   },
   "sections": {
-    "app-tags/sections/mySection.tsx": $$$$$$0,
-    "app-tags/sections/tags.tsx": $$$$$$1,
+    "app-tags/sections/tags.tsx": $$$$$$0,
   },
   "actions": {
     "app-tags/actions/myAction.ts": $$$$$$$$$0,
