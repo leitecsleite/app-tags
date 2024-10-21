@@ -2,10 +2,11 @@ import type { App, FnContext } from "@deco/deco";
 import { fetchSafe } from "apps/utils/fetch.ts";
 import { createHttpClient } from "apps/utils/http.ts";
 import { PreviewContainer } from "apps/utils/preview.tsx";
-import type { Secret } from "apps/website/loaders/secret.ts";
+import { Secret } from "apps/website/loaders/secret.ts";
 import manifest, { Manifest } from "./manifest.gen.ts";
 import { OpenAPI as VCS } from "./utils/openapi/vcs.openapi.gen.ts";
-import { FlagCategoryCustomProps, FlagCollectionCustomProps, FlagDiscountThirdForProps } from "./utils/types.ts";
+import { FlagDiscountThirdForProps, FlagSpecialProps } from "./utils/types.ts";
+import { Flags } from "./utils/types.ts";
 
 export type AppContext = FnContext<State, Manifest>;
 
@@ -20,26 +21,33 @@ export interface Props {
   /**
    * @title X-VTEX-API-AppKey
    * @description Unique identifier of the application key.
+   * @format string
    */
-   appKey: Secret;
+  appKey: Secret;
 
-   /**
-   * @title X-VTEX-API-AppToken
-   * @description Secret token of the application key.
-   */
+  /**
+  * @title X-VTEX-API-AppToken
+  * @description Secret token of the application key.
+  * @format string
+  */
 
-  appToken: Secret; 
+  appToken: Secret
 
   /**
    * @title Flag Desconto na terceira compra
    */
   flagDiscountThirdFor?: FlagDiscountThirdForProps[];
 
-  /**@title Flag de Categoria ou departamento Personalizada */
-  flagCustom?: FlagCategoryCustomProps[];
+  /**@title Flags Personalizada */
+  flagCustom?: Flags[];
 
-   /**@title Flag de Categoria Personalizada */
-  flagCustomCollection?: FlagCollectionCustomProps[];
+  /**@title Flags Especiais */
+  flagSpecial?: FlagSpecialProps[];
+  
+  /**@title Desconto */
+  /** @description  Flag de porcetagem de desconto % */
+  discount?: boolean;
+
 }
 
 // Here we define the state of the app
@@ -55,20 +63,22 @@ export interface State extends Omit<Props, "token"> {
  * @logo https://
  */
 export default function App(props: Props): App<Manifest, State> {
-  const { appKey,  appToken, account: _account, flagCustom, flagDiscountThirdFor } = props;
+  const { appKey, appToken, account: _account, flagCustom, flagDiscountThirdFor } = props;
 
   // const stringAppToken = typeof appToken === "string" ? appToken : appToken?.get() ?? "";
-  
+
   // const stringAppKey = typeof appKey === "string" ? appKey : appKey?.get() ?? "";
+
+  console.log("chave da api", typeof appKey)
 
   const api = createHttpClient<VCS>({
     base: `https://${_account}.vtexcommercestable.com.br`,
     fetcher: fetchSafe,
     headers: new Headers({
-       "Accept": "application/json",
-		   "Content-Type": "application/json",
-      "X-VTEX-API-AppKey": appKey?.get()! ,
-      "X-VTEX-API-AppToken": appToken?.get()!,
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "X-VTEX-API-AppKey": appKey?.get() ?? '',
+      "X-VTEX-API-AppToken": appToken?.get() ?? '',
     }),
   });
 

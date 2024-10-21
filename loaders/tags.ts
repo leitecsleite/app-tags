@@ -8,16 +8,19 @@ const loader = (
   _req: Request,
   ctx: AppContext,
 ) => {
+  const flagDiscountThirdFor = ctx.flagDiscountThirdFor;
+  const flagCustom = ctx.flagCustom;
+  const flagSpecial = ctx.flagSpecial;
+  const discount = ctx.discount; 
 
-  const flagCustom = ctx.flagDiscountThirdFor;
-  const flagDiscountThirdFor = ctx.flagDiscountThirdFor
 
-  return {
+  const result = {
+    flagDiscountThirdFor: flagDiscountThirdFor,
     flagCustom: flagCustom,
-    flagDiscountThirdFor: flagDiscountThirdFor
-  }
-}
+    flagSpecial: flagSpecial,
+    discount: discount
+  };
 
-
-
+  return result;
+};
 export default loader;
