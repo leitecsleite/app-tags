@@ -113,7 +113,7 @@ export interface FlagSpecialProps {
   dateTo?: string;
 
   /** @title Ativar a Flag Personalizada */
-  showFlagCustom: boolean;
+  showFlag: boolean;
 }
 
 /**@title Edição de Flag */
@@ -175,7 +175,7 @@ export interface Flags {
   dateTo?: string;
 
   /** @title Ativar a Flag Personalizada */
-  showFlagCustom: boolean;
+  showFlag: boolean;
 }
 
 /** @title {{{name}}} */
@@ -267,7 +267,7 @@ export interface FlagDiscountThirdForProps {
   flagPosition?: flagPosition;
 
   /** @title Ativar a Flag Desconto na Terceira Compra */
-  showFlagDiscountThirdFor: boolean;
+  showFlag: boolean;
 }
 
 export interface Collection {
