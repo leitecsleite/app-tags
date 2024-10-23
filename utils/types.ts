@@ -78,6 +78,9 @@ export interface FormatFlagCustom {
 export interface FormatFlagImage {
   /** @title Imagem da flag */
   image?: ImageWidget;
+
+  /** @title Posição da flag */
+  flagPosition?: flagPosition;
 }
 
 export interface OptionsFlagCustom {
@@ -141,9 +144,6 @@ export interface FlagEdit {
 
   /** @title Posição da flag */
   flagPosition?: flagPosition;
-
-  /** @title Ativar a Flag Personalizada */
-  showFlagCustom: boolean;
 
   /** @hide true */
   type?: "ProductDetails" | "ProductShelf";
@@ -215,19 +215,8 @@ export interface FlagCollectionCustomProps {
   /** @description ex: #720303 */
   textLeftBackgroundColor: Color;
 
-  /** @title Data de Início */
-  /** @format date */
-  dateFrom?: string;
-
-  /** @title Data de Fim */
-  /** @format date */
-  dateTo?: string;
-
   /** @title Posição da flag */
   flagPosition?: flagPosition;
-
-  /** @title Ativar a Flag Personalizada */
-  showFlagCustom: boolean;
 
   /** @hide true */
   type?: "ProductDetails" | "ProductShelf";
